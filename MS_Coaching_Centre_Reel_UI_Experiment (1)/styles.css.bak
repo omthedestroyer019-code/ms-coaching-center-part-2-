@@ -1,0 +1,1388 @@
+:root{
+  --bg:#eef2ff;--surface:#ffffff;--ink:#0f172a;--muted:#64748b;--primary:#0f172a;--accent:#f59e0b;--accent2:#2563eb;--danger:#dc2626;--ok:#16a34a;--border:#dbe3ef;--shadow:0 10px 30px rgba(15,23,42,.12);
+}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.screen{display:none;min-height:100dvh}.screen.active{display:block}.app-shell{max-width:540px;margin:0 auto;min-height:100dvh;background:#f8fafc;box-shadow:0 0 0 1px rgba(15,23,42,.08)}
+.login-screen{padding:22px 16px;background:linear-gradient(150deg,#0f172a 0%,#1e3a8a 45%,#f59e0b 130%)}.brand-card{color:white;text-align:center;padding:34px 10px 20px}.logo-mark{width:84px;height:84px;margin:0 auto 14px;border-radius:24px;background:linear-gradient(135deg,#f59e0b,#fef3c7);color:#0f172a;display:grid;place-items:center;font-weight:900;font-size:28px;box-shadow:var(--shadow)}.brand-card h1{margin:0 0 8px;font-size:28px}.brand-card p{margin:0;color:#dbeafe;font-weight:700;letter-spacing:.4px}.card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:16px;box-shadow:var(--shadow)}.form-card h2{margin:0 0 6px}.muted{color:var(--muted);margin:0 0 14px}.form-card label{display:block;font-weight:700;margin:12px 0 6px}.form-card input,.form-card select,.form-card textarea,input,select,textarea{width:100%;border:1px solid var(--border);border-radius:14px;padding:12px 13px;background:#fff;color:var(--ink)}textarea{min-height:90px;resize:vertical}.primary-btn{width:100%;background:var(--primary);color:white;padding:13px 16px;border-radius:14px;font-weight:800;margin-top:14px}.secondary-btn{background:#e2e8f0;color:#0f172a;padding:10px 12px;border-radius:12px;font-weight:800}.accent-btn{background:var(--accent);color:#111827;padding:10px 12px;border-radius:12px;font-weight:900}.danger-btn{background:#fee2e2;color:#991b1b;padding:10px 12px;border-radius:12px;font-weight:800}.ghost-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:white;border-radius:12px;padding:9px 12px;font-weight:800}.error-message{color:#b91c1c;font-weight:700;margin-top:10px}.demo-box{margin-top:14px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:14px;padding:12px;display:grid;gap:6px;font-size:12px;color:#334155}
+.main-screen{padding-bottom:78px}.topbar{position:sticky;top:0;z-index:5;background:#0f172a;color:white;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.topbar h2{margin:0;font-size:20px}.topbar p{margin:3px 0 0;color:#cbd5e1;font-size:12px}.content{padding:14px;display:grid;gap:14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.stat-card{background:white;border-radius:18px;padding:14px;border:1px solid var(--border);box-shadow:0 5px 16px rgba(15,23,42,.06)}.stat-card strong{display:block;font-size:24px}.stat-card span{color:var(--muted);font-size:12px;font-weight:700}.section-title{font-size:18px;margin:2px 0 0}.list{display:grid;gap:10px}.item{background:white;border:1px solid var(--border);border-radius:18px;padding:13px;box-shadow:0 5px 16px rgba(15,23,42,.05)}.item h3{margin:0 0 4px;font-size:16px}.item p{margin:3px 0;color:var(--muted);font-size:13px}.row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 8px;font-size:12px;font-weight:800;background:#e0f2fe;color:#075985}.pill.ok{background:#dcfce7;color:#166534}.pill.warn{background:#fef3c7;color:#92400e}.pill.bad{background:#fee2e2;color:#991b1b}.form-grid{display:grid;gap:10px}.bottom-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(540px,100%);background:white;border-top:1px solid var(--border);display:grid;grid-auto-flow:column;grid-auto-columns:1fr;box-shadow:0 -8px 24px rgba(15,23,42,.08);z-index:6}.bottom-nav button{background:white;color:#475569;padding:9px 4px 10px;display:grid;place-items:center;gap:2px;font-size:11px;font-weight:800}.bottom-nav button.active{color:#0f172a;background:#fef3c7}.nav-icon{font-size:18px}.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.2s;z-index:20;max-width:92%;font-weight:800}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed #cbd5e1;border-radius:18px;background:white}.link-btn{display:inline-block;text-decoration:none;background:#0f172a;color:white;border-radius:14px;padding:12px 14px;font-weight:900}.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai-grid a{text-align:center}.small{font-size:12px;color:var(--muted)}
+@media (min-width:780px){.app-shell{max-width:960px}.grid{grid-template-columns:repeat(4,1fr)}.content{padding:22px}.bottom-nav{max-width:960px}.list.two{grid-template-columns:1fr 1fr}.form-grid.two{grid-template-columns:1fr 1fr}}
+
+.search-card{background:white;border:1px solid var(--border);border-radius:18px;padding:10px;box-shadow:0 5px 16px rgba(15,23,42,.05)}
+.search-input{border-radius:14px;background:#f8fafc;font-weight:700}
+.fee-grid .stat-card strong{font-size:20px;word-break:break-word}
+.fee-chart-card h3{margin:0 0 12px}.fee-chart-wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.pie-chart{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 14px rgba(255,255,255,.5),0 8px 24px rgba(15,23,42,.12);position:relative;flex:0 0 auto}.pie-chart span{background:white;border-radius:999px;padding:8px 10px;font-weight:900;font-size:13px;box-shadow:0 3px 10px rgba(15,23,42,.15)}.chart-legend{display:grid;gap:8px;font-weight:800;color:#334155}.legend-dot{width:11px;height:11px;border-radius:50%;display:inline-block;margin-right:7px}.ok-dot{background:var(--ok)}.warn-dot{background:var(--accent)}.bad-dot{background:var(--danger)}
+.searchable{display:block}
+@media (max-width:420px){.pie-chart{width:132px;height:132px}.fee-chart-wrap{justify-content:center}.chart-legend{width:100%}.fee-grid{grid-template-columns:1fr 1fr}}
+
+.file-picker{display:flex;align-items:center;justify-content:center;border:1px dashed #94a3b8;border-radius:14px;padding:16px;background:#f8fafc;color:#0f172a;font-weight:800;cursor:pointer;text-align:center}
+.file-picker input{display:none}
+.file-picker:hover{background:#eef2ff;border-color:#2563eb}
+
+/* UX polish update */
+.page-enter{animation:pageFade .26s ease both}
+@keyframes pageFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card,.item,.stat-card,.search-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.card,.item,.stat-card,.primary-btn,.secondary-btn,.accent-btn,.danger-btn,.ghost-btn{transition:transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s cubic-bezier(.22,1,.36,1), filter .28s ease;}
+.card:hover,.item:hover,.stat-card:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(15,23,42,.12)}
+.primary-btn,.secondary-btn,.accent-btn,.danger-btn,.ghost-btn,.link-btn,.bottom-nav button{transition:transform .15s ease,filter .15s ease,background .15s ease}
+.primary-btn:active,.secondary-btn:active,.accent-btn:active,.danger-btn:active,.ghost-btn:active,.link-btn:active,.bottom-nav button:active{transform:scale(.98)}
+.hero-card{background:linear-gradient(135deg,#0f172a,#1d4ed8);color:white;border-radius:24px;padding:18px;border:1px solid rgba(255,255,255,.16);box-shadow:var(--shadow);animation:heroIn .35s ease both}
+.hero-card h3{margin:0 0 6px;font-size:20px}.hero-card p{margin:0;color:#dbeafe;font-size:13px;line-height:1.5}.hero-card + .grid{margin-top:0}
+@keyframes heroIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form-row label{font-weight:800;font-size:12px;color:#334155}.form-row input{margin-top:6px}
+.time-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}.time-row span{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:9px 10px;font-size:13px;color:#334155}.time-row strong{color:#0f172a}.attendance-card{border-left:4px solid #2563eb}.more-tile{width:100%;text-align:left}.search-input:focus,input:focus,select:focus,textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.14)}
+@media (prefers-reduced-motion:reduce){*,.page-enter,.hero-card{animation:none!important;transition:none!important}}
+@media (max-width:420px){.form-row,.time-row{grid-template-columns:1fr}.hero-card h3{font-size:18px}}
+
+
+/* Logo, splash, and PWA visual polish */
+.splash-screen{
+  position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 20%,#1e3a8a 0%,#0f172a 52%,#020617 100%);
+  color:white;transition:opacity .42s ease,visibility .42s ease;overflow:hidden;
+}
+.splash-screen::before,.splash-screen::after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.35;animation:floatGlow 4s ease-in-out infinite}
+.splash-screen::before{width:260px;height:260px;background:#f59e0b;top:-90px;right:-90px}.splash-screen::after{width:240px;height:240px;background:#2563eb;bottom:-90px;left:-80px;animation-delay:.6s}
+.splash-screen.hide{opacity:0;visibility:hidden}.splash-content{position:relative;text-align:center;display:grid;place-items:center;gap:10px;padding:24px;animation:splashRise .75s cubic-bezier(.2,.9,.2,1) both}.splash-logo{width:132px;height:132px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 6px rgba(255,255,255,.14),0 24px 70px rgba(0,0,0,.35);animation:logoPulse 1.6s ease-in-out infinite}.splash-content h1{font-size:26px;margin:10px 0 0;letter-spacing:.2px}.splash-content p{margin:0;color:#fde68a;font-weight:900;font-size:13px;letter-spacing:.8px}.loading-motion{display:flex;gap:8px;margin-top:14px}.loading-motion span{width:10px;height:10px;border-radius:999px;background:#facc15;animation:dotBounce .75s ease-in-out infinite}.loading-motion span:nth-child(2){animation-delay:.12s}.loading-motion span:nth-child(3){animation-delay:.24s}
+.login-logo{width:112px;height:112px;margin:0 auto 14px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 0 0 5px rgba(255,255,255,.16),0 18px 46px rgba(0,0,0,.28);animation:softPulse 2.4s ease-in-out infinite}.title-line{display:flex;align-items:center;gap:10px}.topbar-logo{width:42px;height:42px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(255,255,255,.18),0 8px 22px rgba(0,0,0,.25);flex:0 0 auto}.topbar-title{min-width:0}.topbar-title h2{display:inline-block}.brand-card{animation:brandFade .45s ease both}.app-shell{position:relative}
+@keyframes splashRise{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes logoPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 6px rgba(255,255,255,.14),0 24px 70px rgba(0,0,0,.35)}50%{transform:scale(1.035);box-shadow:0 0 0 12px rgba(250,204,21,.14),0 28px 80px rgba(0,0,0,.42)}}@keyframes dotBounce{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(-8px);opacity:1}}@keyframes floatGlow{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(12px,-8px) scale(1.08)}}@keyframes softPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}@keyframes brandFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media (max-width:420px){.splash-logo{width:112px;height:112px}.splash-content h1{font-size:22px}.login-logo{width:96px;height:96px}.topbar-logo{width:36px;height:36px}.title-line{gap:8px}}
+
+/* =========================================================
+   EXPERIMENTAL ORBITAL UI BRANCH - APPLIED TO ALL SECTIONS
+   This is a visual-only layer. It does not change login/backend logic.
+   ========================================================= */
+:root{
+  --orb-bg:#020617;
+  --orb-panel:rgba(15,23,42,.78);
+  --orb-panel-strong:rgba(15,23,42,.92);
+  --orb-line:rgba(148,163,184,.20);
+  --orb-glow-blue:rgba(59,130,246,.38);
+  --orb-glow-gold:rgba(245,158,11,.38);
+  --orb-text:#f8fafc;
+  --orb-soft:#cbd5e1;
+}
+body{background:#020617;}
+.app-shell{
+  background:var(--orb-bg);
+  overflow:hidden;
+  box-shadow:0 0 0 1px rgba(148,163,184,.18),0 0 80px rgba(37,99,235,.22);
+}
+.login-screen{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 24%,rgba(37,99,235,.34),transparent 32%),
+    radial-gradient(circle at 82% 15%,rgba(245,158,11,.22),transparent 26%),
+    radial-gradient(circle at 10% 78%,rgba(59,130,246,.25),transparent 28%),
+    #020617;
+}
+.login-screen::before{
+  content:"";
+  position:absolute;
+  width:410px;height:410px;
+  left:50%;top:13%;
+  transform:translateX(-50%);
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.018),0 0 90px rgba(37,99,235,.22);
+  animation:orbitalSpin 22s linear infinite;
+  pointer-events:none;
+}
+.login-screen::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 0 94%,rgba(250,204,21,.12) 95%),linear-gradient(90deg,transparent 0 94%,rgba(59,130,246,.10) 95%);
+  background-size:34px 34px;
+  opacity:.18;
+  pointer-events:none;
+}
+.brand-card,.form-card{position:relative;z-index:1;}
+.form-card{
+  color:var(--orb-text);
+  background:linear-gradient(145deg,rgba(15,23,42,.88),rgba(15,23,42,.62));
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 40px rgba(37,99,235,.16);
+  backdrop-filter:blur(18px);
+}
+.form-card .muted,.form-card .small{color:#cbd5e1;}
+.form-card input{background:rgba(2,6,23,.72);border-color:rgba(148,163,184,.25);color:white;}
+.form-card input::placeholder{color:rgba(203,213,225,.62);}
+.form-card .primary-btn{background:linear-gradient(135deg,#f59e0b,#fde68a);color:#111827;box-shadow:0 12px 28px rgba(245,158,11,.26);}
+.main-screen{
+  position:relative;
+  min-height:100dvh;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(37,99,235,.30),transparent 30%),
+    radial-gradient(circle at 92% 20%,rgba(245,158,11,.16),transparent 24%),
+    radial-gradient(circle at 12% 75%,rgba(59,130,246,.18),transparent 25%),
+    linear-gradient(180deg,#020617,#0f172a 55%,#020617);
+  overflow:hidden;
+}
+.main-screen::before{
+  content:"";
+  position:fixed;
+  left:50%;top:46%;
+  width:min(620px,130vw);height:min(620px,130vw);
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 0 0 80px rgba(255,255,255,.025),0 0 0 160px rgba(255,255,255,.014),0 0 130px rgba(37,99,235,.16);
+  animation:orbitalSpin 36s linear infinite;
+  pointer-events:none;
+  z-index:0;
+}
+.main-screen::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(transparent 0 95%,rgba(148,163,184,.08) 96%),
+    linear-gradient(90deg,transparent 0 95%,rgba(148,163,184,.08) 96%);
+  background-size:38px 38px;
+  opacity:.22;
+  pointer-events:none;
+  z-index:0;
+}
+.topbar,.content,.bottom-nav{position:relative;z-index:1;}
+.topbar{
+  background:linear-gradient(135deg,rgba(2,6,23,.96),rgba(15,23,42,.88));
+  border-bottom:1px solid rgba(148,163,184,.18);
+  box-shadow:0 16px 40px rgba(0,0,0,.30);
+  backdrop-filter:blur(18px);
+}
+.topbar h2{color:white;letter-spacing:.2px;}
+.topbar p{color:rgba(203,213,225,.86);}
+.topbar-logo{box-shadow:0 0 0 2px rgba(250,204,21,.20),0 0 24px rgba(250,204,21,.22),0 0 40px rgba(37,99,235,.18);}
+.title-line::after{
+  content:"";
+  width:9px;height:9px;border-radius:50%;
+  background:#facc15;
+  box-shadow:0 0 14px #facc15,0 0 26px rgba(37,99,235,.8);
+  animation:nodePulse 1.5s ease-in-out infinite;
+}
+.content{padding-top:16px;}
+.content::before{
+  content:"";
+  position:fixed;
+  right:calc(50% - min(480px, 48vw));
+  top:96px;
+  width:96px;height:96px;
+  border-radius:50%;
+  border:1px solid rgba(250,204,21,.18);
+  box-shadow:inset 0 0 30px rgba(250,204,21,.10),0 0 44px rgba(37,99,235,.16);
+  animation:orbitalFloat 4.8s ease-in-out infinite;
+  pointer-events:none;
+  opacity:.7;
+}
+.card,.item,.stat-card,.search-card,.empty{
+  color:var(--orb-text);
+  background:linear-gradient(145deg,rgba(15,23,42,.82),rgba(2,6,23,.68));
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:0 18px 48px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.05);
+  backdrop-filter:blur(15px);
+}
+.card:hover,.item:hover,.stat-card:hover,.search-card:hover{
+  border-color:rgba(250,204,21,.30);
+  box-shadow:0 22px 60px rgba(0,0,0,.35),0 0 34px rgba(37,99,235,.14),inset 0 1px 0 rgba(255,255,255,.07);
+}
+.hero-card{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(250,204,21,.22),transparent 28%),
+    radial-gradient(circle at 92% 20%,rgba(37,99,235,.38),transparent 32%),
+    linear-gradient(145deg,rgba(15,23,42,.95),rgba(2,6,23,.72));
+  border:1px solid rgba(250,204,21,.23);
+  box-shadow:0 24px 70px rgba(0,0,0,.34),0 0 38px rgba(37,99,235,.18);
+}
+.hero-card::after{
+  content:"";
+  position:absolute;right:-44px;top:-44px;
+  width:150px;height:150px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 0 34px rgba(255,255,255,.025),0 0 0 68px rgba(255,255,255,.014);
+  animation:orbitalSpin 20s linear infinite;
+}
+.stat-card{position:relative;overflow:hidden;}
+.stat-card::before{
+  content:"";
+  position:absolute;inset:auto -30px -45px auto;
+  width:105px;height:105px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.26),transparent 65%);
+}
+.stat-card strong{color:white;text-shadow:0 0 22px rgba(59,130,246,.28);}
+.stat-card span,.item p,.muted,.small,.empty{color:var(--orb-soft);}
+.section-title{color:#f8fafc;font-weight:900;letter-spacing:.15px;text-shadow:0 0 20px rgba(37,99,235,.22);}
+.item h3,.card h3{color:#fff;}
+input,select,textarea,.search-input{
+  background:rgba(2,6,23,.72);
+  border-color:rgba(148,163,184,.24);
+  color:#f8fafc;
+}
+input::placeholder,textarea::placeholder{color:rgba(203,213,225,.55);}
+input:focus,select:focus,textarea:focus,.search-input:focus{border-color:rgba(250,204,21,.70);box-shadow:0 0 0 3px rgba(250,204,21,.13),0 0 22px rgba(37,99,235,.16);}
+.form-row label{color:#e2e8f0;}
+.time-row span{background:rgba(2,6,23,.54);border-color:rgba(148,163,184,.18);color:#cbd5e1}.time-row strong{color:#fff}.attendance-card{border-left-color:#facc15;}
+.primary-btn,.link-btn{background:linear-gradient(135deg,#2563eb,#1d4ed8);box-shadow:0 12px 28px rgba(37,99,235,.22);}
+.accent-btn{background:linear-gradient(135deg,#f59e0b,#fde68a);box-shadow:0 12px 24px rgba(245,158,11,.20);}
+.secondary-btn{background:rgba(148,163,184,.16);color:#f8fafc;border:1px solid rgba(148,163,184,.18);}
+.danger-btn{background:rgba(220,38,38,.16);color:#fecaca;border:1px solid rgba(248,113,113,.22);}
+.file-picker{background:rgba(2,6,23,.60);border-color:rgba(148,163,184,.25);color:#e2e8f0;}
+.file-picker:hover{background:rgba(37,99,235,.18);border-color:rgba(250,204,21,.55);}
+.bottom-nav{
+  background:rgba(2,6,23,.92);
+  border-top:1px solid rgba(148,163,184,.20);
+  box-shadow:0 -18px 50px rgba(0,0,0,.38);
+  backdrop-filter:blur(18px);
+}
+.bottom-nav button{background:transparent;color:#94a3b8;}
+.bottom-nav button.active{color:#f8fafc;background:linear-gradient(180deg,rgba(37,99,235,.25),rgba(250,204,21,.12));}
+.bottom-nav button.active .nav-icon{filter:drop-shadow(0 0 10px rgba(250,204,21,.7));}
+.pill{background:rgba(59,130,246,.16);color:#bfdbfe;border:1px solid rgba(147,197,253,.22)}.pill.ok{background:rgba(22,163,74,.16);color:#bbf7d0;border-color:rgba(74,222,128,.22)}.pill.warn{background:rgba(245,158,11,.18);color:#fde68a;border-color:rgba(251,191,36,.25)}.pill.bad{background:rgba(220,38,38,.18);color:#fecaca;border-color:rgba(248,113,113,.25)}
+.pie-chart span{background:#020617;color:#fff;border:1px solid rgba(148,163,184,.22)}.chart-legend{color:#dbeafe}
+.ai-grid a{box-shadow:0 12px 28px rgba(37,99,235,.16)}
+.toast{background:rgba(15,23,42,.96);border:1px solid rgba(250,204,21,.22);box-shadow:0 18px 50px rgba(0,0,0,.38),0 0 28px rgba(37,99,235,.15);}
+@keyframes orbitalSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes orbitalFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(12px) scale(1.04)}}
+@keyframes nodePulse{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.45);opacity:1}}
+@media (max-width:420px){.main-screen::before{width:520px;height:520px}.content::before{right:-35px;top:104px;width:76px;height:76px}.card,.item,.stat-card{border-radius:18px}.content{padding:12px}}
+@media (prefers-reduced-motion:reduce){.main-screen::before,.login-screen::before,.hero-card::after,.content::before,.title-line::after{animation:none!important}}
+
+
+/* =========================================================
+   ORBITAL UI FIX v2 - visible animation + fixed bottom nav
+   ========================================================= */
+.main-screen{
+  padding-bottom:102px !important;
+}
+.orbital-layer{
+  position:fixed;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:min(960px,100vw);
+  transform:translateX(-50%);
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+.orbit-scene{
+  position:absolute;
+  left:50%;
+  top:46%;
+  width:min(620px,128vw);
+  height:min(620px,128vw);
+  transform:translate(-50%,-50%);
+  filter:drop-shadow(0 0 26px rgba(37,99,235,.20));
+}
+.orbit-core{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:72px;
+  height:72px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,#fef3c7 0 10%,#f59e0b 11% 24%,rgba(37,99,235,.35) 25% 44%,rgba(15,23,42,.20) 45% 100%);
+  border:1px solid rgba(250,204,21,.35);
+  box-shadow:0 0 35px rgba(250,204,21,.25),0 0 70px rgba(37,99,235,.20),inset 0 0 20px rgba(255,255,255,.10);
+  animation:coreBreath 2.8s ease-in-out infinite;
+  opacity:.78;
+}
+.orbit-core span{
+  position:absolute;
+  inset:-22px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.10);
+  animation:corePing 2.8s ease-out infinite;
+}
+.orbit-ring{
+  position:absolute;
+  left:50%;
+  top:50%;
+  border-radius:50%;
+  border:1px solid rgba(148,163,184,.16);
+  transform:translate(-50%,-50%);
+  box-shadow:inset 0 0 28px rgba(37,99,235,.07),0 0 36px rgba(37,99,235,.08);
+}
+.orbit-ring::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:50%;
+  border-top:1px solid rgba(250,204,21,.46);
+  border-right:1px solid rgba(59,130,246,.30);
+  border-bottom:1px solid transparent;
+  border-left:1px solid transparent;
+}
+.orbit-ring i,.orbit-ring b{
+  position:absolute;
+  display:block;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#facc15;
+  box-shadow:0 0 14px #facc15,0 0 34px rgba(37,99,235,.55);
+}
+.orbit-ring i{left:50%;top:-6px;transform:translateX(-50%)}
+.orbit-ring b{right:7%;bottom:15%;background:#60a5fa;box-shadow:0 0 14px #60a5fa,0 0 32px rgba(250,204,21,.38)}
+.orbit-ring-1{width:190px;height:190px;animation:orbitSpinVisible 10s linear infinite;}
+.orbit-ring-2{width:340px;height:340px;animation:orbitSpinVisibleReverse 18s linear infinite;opacity:.86;}
+.orbit-ring-2 i{width:10px;height:10px;background:#93c5fd;box-shadow:0 0 14px #93c5fd,0 0 30px rgba(59,130,246,.5)}
+.orbit-ring-2 b{width:9px;height:9px;background:#fde68a;}
+.orbit-ring-3{width:520px;height:520px;animation:orbitSpinVisible 30s linear infinite;opacity:.62;}
+.orbit-ring-3 i{width:8px;height:8px;background:#fff7ed;box-shadow:0 0 10px #fff7ed,0 0 24px rgba(250,204,21,.35)}
+.orbit-ring-3 b{width:8px;height:8px;background:#38bdf8;}
+/* Make content stay above orbital animation */
+.topbar,.content{position:relative;z-index:2;}
+/* IMPORTANT: previous UI layer accidentally changed bottom nav to relative. Keep it fixed at the real bottom. */
+.bottom-nav{
+  position:fixed !important;
+  left:50% !important;
+  right:auto !important;
+  bottom:0 !important;
+  transform:translateX(-50%) !important;
+  width:min(960px,100%) !important;
+  max-width:960px !important;
+  min-height:66px;
+  z-index:30 !important;
+  display:grid !important;
+  grid-auto-flow:column;
+  grid-auto-columns:1fr;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.bottom-nav button{
+  min-height:66px;
+  padding:8px 4px 10px;
+  text-decoration:none !important;
+}
+.bottom-nav button span{
+  text-decoration:none !important;
+}
+.nav-icon{font-size:20px;line-height:1;}
+@keyframes orbitSpinVisible{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes orbitSpinVisibleReverse{from{transform:translate(-50%,-50%) rotate(360deg)}to{transform:translate(-50%,-50%) rotate(0deg)}}
+@keyframes coreBreath{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.66}50%{transform:translate(-50%,-50%) scale(1.08);opacity:.9}}
+@keyframes corePing{0%{transform:scale(.72);opacity:.55}100%{transform:scale(1.55);opacity:0}}
+@media (max-width:520px){
+  .orbit-scene{top:47%;width:560px;height:560px;}
+  .orbit-ring-3{width:450px;height:450px;}
+  .orbit-ring-2{width:310px;height:310px;}
+  .orbit-ring-1{width:170px;height:170px;}
+  .bottom-nav{width:100% !important;}
+  .bottom-nav button{font-size:10.5px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .orbit-ring,.orbit-core,.orbit-core span{animation:none!important;}
+}
+
+/* =========================================================
+   REQUESTED ORBITAL INTERACTIONS v3
+   - keep theme
+   - background orbit starts from ground
+   - Quick Actions orbit around center
+   - More page items orbit around logo
+   ========================================================= */
+.orbit-scene{
+  top:82% !important;
+  width:min(760px,150vw) !important;
+  height:min(760px,150vw) !important;
+  opacity:.72;
+}
+.orbit-ring-1{width:220px !important;height:220px !important;}
+.orbit-ring-2{width:410px !important;height:410px !important;}
+.orbit-ring-3{width:650px !important;height:650px !important;}
+.content{padding-bottom:20px;}
+.quick-orbit-card{
+  min-height:330px;
+  overflow:hidden;
+  padding:0;
+  position:relative;
+}
+.quick-orbit-scene{
+  position:relative;
+  min-height:330px;
+  width:100%;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+.quick-orbit-scene::before{
+  content:"";
+  position:absolute;
+  width:260px;height:260px;
+  border-radius:50%;
+  border:1px solid rgba(250,204,21,.22);
+  box-shadow:0 0 0 42px rgba(37,99,235,.035),0 0 70px rgba(37,99,235,.18),inset 0 0 35px rgba(250,204,21,.06);
+  animation:quickRingRotate 16s linear infinite;
+}
+.quick-orbit-scene::after{
+  content:"";
+  position:absolute;
+  width:162px;height:162px;
+  border-radius:50%;
+  border:1px dashed rgba(147,197,253,.22);
+  animation:quickRingRotateReverse 11s linear infinite;
+}
+.quick-orbit-ring{
+  position:absolute;
+  width:300px;height:300px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(250,204,21,.65) 0 5px,transparent 6px),
+    radial-gradient(circle at 92% 50%,rgba(96,165,250,.65) 0 5px,transparent 6px),
+    radial-gradient(circle at 50% 100%,rgba(250,204,21,.45) 0 4px,transparent 5px),
+    radial-gradient(circle at 8% 50%,rgba(96,165,250,.45) 0 4px,transparent 5px);
+  border:1px solid rgba(148,163,184,.12);
+  animation:quickRingRotate 12s linear infinite;
+  pointer-events:none;
+}
+.quick-orbit-center{
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:122px;height:122px;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:radial-gradient(circle at 35% 20%,rgba(250,204,21,.24),rgba(37,99,235,.20) 46%,rgba(2,6,23,.88) 100%);
+  border:1px solid rgba(250,204,21,.38);
+  box-shadow:0 0 34px rgba(250,204,21,.18),0 0 68px rgba(37,99,235,.16),inset 0 0 25px rgba(255,255,255,.05);
+  z-index:3;
+  animation:quickCenterPulse 2.6s ease-in-out infinite;
+}
+.quick-orbit-center span{font-size:13px;color:#fde68a;font-weight:900;text-transform:uppercase;letter-spacing:.8px;}
+.quick-orbit-center strong{font-size:21px;color:#fff;line-height:1.1;}
+.quick-orbit-actions{
+  position:absolute;
+  inset:0;
+  z-index:4;
+}
+.quick-orbit-actions button{
+  position:absolute;
+  min-width:116px;
+  min-height:48px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:10px 14px;
+  white-space:nowrap;
+  border:1px solid rgba(255,255,255,.16);
+  transform:translate(-50%,-50%);
+}
+.quick-orbit-actions button:nth-child(1){left:50%;top:12%;animation:orbitBob1 3.2s ease-in-out infinite;}
+.quick-orbit-actions button:nth-child(2){left:88%;top:50%;animation:orbitBob2 3.5s ease-in-out infinite;}
+.quick-orbit-actions button:nth-child(3){left:50%;top:88%;animation:orbitBob3 3.3s ease-in-out infinite;}
+.quick-orbit-actions button:nth-child(4){left:12%;top:50%;animation:orbitBob4 3.6s ease-in-out infinite;}
+.quick-orbit-actions button:nth-child(5){left:78%;top:23%;animation:orbitBob2 3.8s ease-in-out infinite;}
+.more-orbit-card{
+  min-height:520px;
+  overflow:hidden;
+  padding:0;
+}
+.more-orbit-scene{
+  position:relative;
+  min-height:520px;
+  width:100%;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+.more-orbit-scene::before{
+  content:"";
+  position:absolute;
+  width:410px;height:410px;
+  border-radius:50%;
+  border:1px solid rgba(250,204,21,.18);
+  box-shadow:0 0 0 58px rgba(37,99,235,.026),0 0 95px rgba(37,99,235,.15),inset 0 0 38px rgba(250,204,21,.05);
+  animation:quickRingRotate 24s linear infinite;
+}
+.more-orbit-scene::after{
+  content:"";
+  position:absolute;
+  width:272px;height:272px;
+  border-radius:50%;
+  border:1px dashed rgba(147,197,253,.20);
+  animation:quickRingRotateReverse 17s linear infinite;
+}
+.more-orbit-ring{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  border:1px solid rgba(148,163,184,.12);
+}
+.more-ring-a{width:348px;height:348px;animation:quickRingRotate 18s linear infinite;}
+.more-ring-b{width:440px;height:440px;animation:quickRingRotateReverse 28s linear infinite;}
+.more-ring-a::before,.more-ring-b::before{
+  content:"";
+  position:absolute;
+  width:11px;height:11px;border-radius:50%;
+  left:50%;top:-6px;transform:translateX(-50%);
+  background:#facc15;
+  box-shadow:0 0 15px #facc15,0 0 34px rgba(37,99,235,.45);
+}
+.more-ring-b::before{background:#60a5fa;box-shadow:0 0 15px #60a5fa,0 0 34px rgba(250,204,21,.32);}
+.more-orbit-logo{
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:132px;height:132px;
+  border-radius:50%;
+  background:rgba(2,6,23,.82);
+  border:1px solid rgba(250,204,21,.34);
+  box-shadow:0 0 35px rgba(250,204,21,.22),0 0 80px rgba(37,99,235,.18),inset 0 0 26px rgba(255,255,255,.06);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;font-weight:900;
+  z-index:5;
+}
+.more-orbit-logo img{width:76px;height:76px;border-radius:50%;object-fit:cover;margin-bottom:4px;}
+.more-orbit-logo span{font-size:13px;color:#fde68a;letter-spacing:.5px;text-transform:uppercase;}
+.more-orbit-item{
+  position:absolute;
+  left:50%;top:50%;
+  width:128px;min-height:58px;
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(15,23,42,.94),rgba(2,6,23,.82));
+  border:1px solid rgba(148,163,184,.22);
+  color:#f8fafc;
+  box-shadow:0 18px 38px rgba(0,0,0,.28),0 0 26px rgba(37,99,235,.12);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  text-align:center;
+  z-index:6;
+}
+.more-orbit-item span{font-size:21px;line-height:1;filter:drop-shadow(0 0 10px rgba(250,204,21,.34));}
+.more-orbit-item strong{font-size:11px;line-height:1.15;}
+.more-pos-1{transform:translate(-50%,-50%) rotate(0deg) translateY(-205px) rotate(0deg);animation:moreFloat1 3.8s ease-in-out infinite;}
+.more-pos-2{transform:translate(-50%,-50%) rotate(51.4deg) translateY(-205px) rotate(-51.4deg);animation:moreFloat2 4s ease-in-out infinite;}
+.more-pos-3{transform:translate(-50%,-50%) rotate(102.8deg) translateY(-205px) rotate(-102.8deg);animation:moreFloat3 4.2s ease-in-out infinite;}
+.more-pos-4{transform:translate(-50%,-50%) rotate(154.2deg) translateY(-205px) rotate(-154.2deg);animation:moreFloat4 3.9s ease-in-out infinite;}
+.more-pos-5{transform:translate(-50%,-50%) rotate(205.6deg) translateY(-205px) rotate(-205.6deg);animation:moreFloat5 4.1s ease-in-out infinite;}
+.more-pos-6{transform:translate(-50%,-50%) rotate(257deg) translateY(-205px) rotate(-257deg);animation:moreFloat6 4.3s ease-in-out infinite;}
+.more-pos-7{transform:translate(-50%,-50%) rotate(308.4deg) translateY(-205px) rotate(-308.4deg);animation:moreFloat7 4s ease-in-out infinite;}
+@keyframes quickRingRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes quickRingRotateReverse{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}
+@keyframes quickCenterPulse{0%,100%{box-shadow:0 0 34px rgba(250,204,21,.18),0 0 68px rgba(37,99,235,.16),inset 0 0 25px rgba(255,255,255,.05)}50%{box-shadow:0 0 46px rgba(250,204,21,.27),0 0 88px rgba(37,99,235,.23),inset 0 0 28px rgba(255,255,255,.08)}}
+@keyframes orbitBob1{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-7px)}}
+@keyframes orbitBob2{0%,100%{transform:translate(-50%,-50%) translateX(0)}50%{transform:translate(-50%,-50%) translateX(7px)}}
+@keyframes orbitBob3{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(7px)}}
+@keyframes orbitBob4{0%,100%{transform:translate(-50%,-50%) translateX(0)}50%{transform:translate(-50%,-50%) translateX(-7px)}}
+@keyframes moreFloat1{0%,100%{margin-top:0}50%{margin-top:-7px}}
+@keyframes moreFloat2{0%,100%{margin-left:0}50%{margin-left:7px}}
+@keyframes moreFloat3{0%,100%{margin-top:0}50%{margin-top:7px}}
+@keyframes moreFloat4{0%,100%{margin-left:0}50%{margin-left:-7px}}
+@keyframes moreFloat5{0%,100%{margin-top:0}50%{margin-top:8px}}
+@keyframes moreFloat6{0%,100%{margin-left:0}50%{margin-left:-6px}}
+@keyframes moreFloat7{0%,100%{margin-top:0}50%{margin-top:-6px}}
+@media (max-width:520px){
+  .orbit-scene{top:88% !important;width:620px !important;height:620px !important;}
+  .orbit-ring-1{width:190px !important;height:190px !important;}
+  .orbit-ring-2{width:340px !important;height:340px !important;}
+  .orbit-ring-3{width:540px !important;height:540px !important;}
+  .quick-orbit-card{min-height:305px;}
+  .quick-orbit-scene{min-height:305px;}
+  .quick-orbit-scene::before{width:220px;height:220px;}
+  .quick-orbit-scene::after{width:142px;height:142px;}
+  .quick-orbit-ring{width:250px;height:250px;}
+  .quick-orbit-center{width:104px;height:104px;}
+  .quick-orbit-center strong{font-size:18px;}
+  .quick-orbit-actions button{min-width:104px;min-height:43px;font-size:13px;padding:8px 10px;}
+  .quick-orbit-actions button:nth-child(2){left:84%;}
+  .quick-orbit-actions button:nth-child(4){left:16%;}
+  .more-orbit-card{min-height:510px;}
+  .more-orbit-scene{min-height:510px;}
+  .more-orbit-scene::before{width:330px;height:330px;}
+  .more-orbit-scene::after{width:230px;height:230px;}
+  .more-ring-a{width:290px;height:290px;}
+  .more-ring-b{width:360px;height:360px;}
+  .more-orbit-logo{width:110px;height:110px;}
+  .more-orbit-logo img{width:62px;height:62px;}
+  .more-orbit-item{width:104px;min-height:54px;border-radius:15px;}
+  .more-orbit-item strong{font-size:10px;}
+  .more-pos-1{transform:translate(-50%,-50%) rotate(0deg) translateY(-174px) rotate(0deg);}
+  .more-pos-2{transform:translate(-50%,-50%) rotate(51.4deg) translateY(-174px) rotate(-51.4deg);}
+  .more-pos-3{transform:translate(-50%,-50%) rotate(102.8deg) translateY(-174px) rotate(-102.8deg);}
+  .more-pos-4{transform:translate(-50%,-50%) rotate(154.2deg) translateY(-174px) rotate(-154.2deg);}
+  .more-pos-5{transform:translate(-50%,-50%) rotate(205.6deg) translateY(-174px) rotate(-205.6deg);}
+  .more-pos-6{transform:translate(-50%,-50%) rotate(257deg) translateY(-174px) rotate(-257deg);}
+  .more-pos-7{transform:translate(-50%,-50%) rotate(308.4deg) translateY(-174px) rotate(-308.4deg);}
+}
+@media (max-width:380px){
+  .quick-orbit-actions button{min-width:94px;font-size:12px;}
+  .more-orbit-item{width:96px;}
+  .more-orbit-item strong{font-size:9.5px;}
+}
+
+
+/* =========================================================
+   FINAL FIX: static background + working More page
+   - removes global animated background orbit
+   - keeps theme
+   - keeps orbital animation only inside Quick Actions and More page
+   ========================================================= */
+.orbital-layer{display:none !important;}
+.app-shell::before,.app-shell::after{animation:none !important;}
+.app-shell{
+  background:
+    radial-gradient(circle at 50% 110%, rgba(30,58,138,.36), transparent 48%),
+    radial-gradient(circle at 100% 18%, rgba(245,158,11,.12), transparent 36%),
+    linear-gradient(180deg, rgba(2,6,23,.99), rgba(15,23,42,.96) 48%, rgba(2,6,23,.99));
+}
+.content{padding-bottom:104px !important;}
+.bottom-nav{
+  position:fixed !important;
+  left:50% !important;
+  bottom:0 !important;
+  transform:translateX(-50%) !important;
+  width:min(960px,100%) !important;
+  z-index:999 !important;
+}
+.more-orbit-card{margin-bottom:18px;}
+.more-orbit-item{cursor:pointer;}
+.more-orbit-logo{cursor:pointer;}
+@media (max-width:520px){
+  .content{padding-bottom:112px !important;}
+}
+
+/* =========================================================
+   PATCH: real circular orbit for Quick Actions + More page
+   - previous version only floated/bobbed the buttons
+   - this version rotates the actual buttons around the center/logo
+   ========================================================= */
+.quick-orbit-card{
+  min-height:370px !important;
+}
+.quick-orbit-scene{
+  min-height:370px !important;
+}
+.quick-orbit-actions button{
+  left:50% !important;
+  top:50% !important;
+  --quick-radius:128px;
+  transform-origin:center center;
+  animation-duration:14s !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  will-change:transform;
+}
+.quick-orbit-actions button:nth-child(1){animation-name:quickOrbit1 !important;}
+.quick-orbit-actions button:nth-child(2){animation-name:quickOrbit2 !important;}
+.quick-orbit-actions button:nth-child(3){animation-name:quickOrbit3 !important;}
+.quick-orbit-actions button:nth-child(4){animation-name:quickOrbit4 !important;}
+.quick-orbit-actions button:nth-child(5){animation-name:quickOrbit5 !important;}
+@keyframes quickOrbit1{
+  from{transform:translate(-50%,-50%) rotate(0deg) translateY(calc(-1 * var(--quick-radius))) rotate(0deg)}
+  to{transform:translate(-50%,-50%) rotate(360deg) translateY(calc(-1 * var(--quick-radius))) rotate(-360deg)}
+}
+@keyframes quickOrbit2{
+  from{transform:translate(-50%,-50%) rotate(90deg) translateY(calc(-1 * var(--quick-radius))) rotate(-90deg)}
+  to{transform:translate(-50%,-50%) rotate(450deg) translateY(calc(-1 * var(--quick-radius))) rotate(-450deg)}
+}
+@keyframes quickOrbit3{
+  from{transform:translate(-50%,-50%) rotate(180deg) translateY(calc(-1 * var(--quick-radius))) rotate(-180deg)}
+  to{transform:translate(-50%,-50%) rotate(540deg) translateY(calc(-1 * var(--quick-radius))) rotate(-540deg)}
+}
+@keyframes quickOrbit4{
+  from{transform:translate(-50%,-50%) rotate(270deg) translateY(calc(-1 * var(--quick-radius))) rotate(-270deg)}
+  to{transform:translate(-50%,-50%) rotate(630deg) translateY(calc(-1 * var(--quick-radius))) rotate(-630deg)}
+}
+@keyframes quickOrbit5{
+  from{transform:translate(-50%,-50%) rotate(315deg) translateY(calc(-1 * var(--quick-radius))) rotate(-315deg)}
+  to{transform:translate(-50%,-50%) rotate(675deg) translateY(calc(-1 * var(--quick-radius))) rotate(-675deg)}
+}
+
+.more-orbit-card{
+  min-height:560px !important;
+}
+.more-orbit-scene{
+  min-height:560px !important;
+}
+.more-orbit-item{
+  left:50% !important;
+  top:50% !important;
+  --more-radius:205px;
+  transform-origin:center center;
+  animation-duration:22s !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  will-change:transform;
+}
+.more-pos-1{animation-name:moreOrbit1 !important;}
+.more-pos-2{animation-name:moreOrbit2 !important;}
+.more-pos-3{animation-name:moreOrbit3 !important;}
+.more-pos-4{animation-name:moreOrbit4 !important;}
+.more-pos-5{animation-name:moreOrbit5 !important;}
+.more-pos-6{animation-name:moreOrbit6 !important;}
+.more-pos-7{animation-name:moreOrbit7 !important;}
+@keyframes moreOrbit1{
+  from{transform:translate(-50%,-50%) rotate(0deg) translateY(calc(-1 * var(--more-radius))) rotate(0deg)}
+  to{transform:translate(-50%,-50%) rotate(360deg) translateY(calc(-1 * var(--more-radius))) rotate(-360deg)}
+}
+@keyframes moreOrbit2{
+  from{transform:translate(-50%,-50%) rotate(51.4deg) translateY(calc(-1 * var(--more-radius))) rotate(-51.4deg)}
+  to{transform:translate(-50%,-50%) rotate(411.4deg) translateY(calc(-1 * var(--more-radius))) rotate(-411.4deg)}
+}
+@keyframes moreOrbit3{
+  from{transform:translate(-50%,-50%) rotate(102.8deg) translateY(calc(-1 * var(--more-radius))) rotate(-102.8deg)}
+  to{transform:translate(-50%,-50%) rotate(462.8deg) translateY(calc(-1 * var(--more-radius))) rotate(-462.8deg)}
+}
+@keyframes moreOrbit4{
+  from{transform:translate(-50%,-50%) rotate(154.2deg) translateY(calc(-1 * var(--more-radius))) rotate(-154.2deg)}
+  to{transform:translate(-50%,-50%) rotate(514.2deg) translateY(calc(-1 * var(--more-radius))) rotate(-514.2deg)}
+}
+@keyframes moreOrbit5{
+  from{transform:translate(-50%,-50%) rotate(205.6deg) translateY(calc(-1 * var(--more-radius))) rotate(-205.6deg)}
+  to{transform:translate(-50%,-50%) rotate(565.6deg) translateY(calc(-1 * var(--more-radius))) rotate(-565.6deg)}
+}
+@keyframes moreOrbit6{
+  from{transform:translate(-50%,-50%) rotate(257deg) translateY(calc(-1 * var(--more-radius))) rotate(-257deg)}
+  to{transform:translate(-50%,-50%) rotate(617deg) translateY(calc(-1 * var(--more-radius))) rotate(-617deg)}
+}
+@keyframes moreOrbit7{
+  from{transform:translate(-50%,-50%) rotate(308.4deg) translateY(calc(-1 * var(--more-radius))) rotate(-308.4deg)}
+  to{transform:translate(-50%,-50%) rotate(668.4deg) translateY(calc(-1 * var(--more-radius))) rotate(-668.4deg)}
+}
+
+@media (max-width:520px){
+  .quick-orbit-card{min-height:335px !important;}
+  .quick-orbit-scene{min-height:335px !important;}
+  .quick-orbit-actions button{
+    --quick-radius:112px;
+    min-width:96px !important;
+    min-height:42px !important;
+    font-size:12px !important;
+    padding:7px 9px !important;
+  }
+  .more-orbit-card{min-height:520px !important;}
+  .more-orbit-scene{min-height:520px !important;}
+  .more-orbit-item{
+    --more-radius:138px;
+    width:96px !important;
+    min-height:50px !important;
+  }
+}
+@media (max-width:380px){
+  .quick-orbit-actions button{
+    --quick-radius:106px;
+    min-width:88px !important;
+    font-size:11px !important;
+  }
+  .more-orbit-item{
+    --more-radius:130px;
+    width:88px !important;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .quick-orbit-actions button,.more-orbit-item{animation:none !important;}
+}
+
+
+/* Privacy Policy + Terms consent on login */
+.legal-consent-box{margin-top:14px;background:rgba(2,6,23,.38);border:1px solid rgba(148,163,184,.22);border-radius:14px;padding:12px}
+.legal-check{display:flex!important;align-items:flex-start;gap:10px;margin:0!important;font-weight:700!important;line-height:1.45;color:#e2e8f0}
+.legal-check input{width:18px!important;height:18px!important;margin:3px 0 0;flex:0 0 auto;accent-color:#f59e0b;box-shadow:none!important}
+.legal-link{display:inline;background:transparent;color:#fde68a;text-decoration:underline;text-underline-offset:3px;padding:0;border:0;font-weight:900;cursor:pointer}
+.legal-note{margin:8px 0 0;color:#cbd5e1;font-size:12px}
+.primary-btn:disabled{opacity:.55;cursor:not-allowed;filter:grayscale(.25);box-shadow:none!important}
+.legal-modal{position:fixed;inset:0;z-index:10000;background:rgba(2,6,23,.76);display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(10px)}
+.legal-modal.show{display:flex}
+.legal-modal-card{width:min(680px,100%);max-height:86dvh;overflow:hidden;background:#ffffff;color:#0f172a;border-radius:22px;border:1px solid rgba(255,255,255,.18);box-shadow:0 28px 90px rgba(0,0,0,.45);display:flex;flex-direction:column}
+.legal-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;background:linear-gradient(135deg,#0f172a,#1e3a8a);color:white}
+.legal-modal-head h2{margin:0;font-size:20px}
+.legal-close{width:38px;height:38px;border-radius:999px;background:rgba(255,255,255,.14);color:white;font-size:28px;line-height:1;display:grid;place-items:center}
+.legal-modal-body{padding:18px;overflow:auto;line-height:1.55}
+.legal-modal-body p{margin:0 0 12px;color:#334155}
+.legal-modal-body h3{margin:18px 0 8px;color:#0f172a;font-size:16px}
+@media (max-width:420px){.legal-modal{padding:10px}.legal-modal-card{max-height:90dvh;border-radius:18px}.legal-modal-body{padding:14px}.legal-check{font-size:13px}}
+
+/* =========================================================
+   PHONE LAYOUT FIX: keep orbit buttons visible on real phones
+   - fixes overlapping dashboard quick-action buttons
+   - fixes More page buttons clipping outside screen
+   - avoids calc(var()) transforms that failed on some Android browsers
+   ========================================================= */
+.quick-orbit-card{
+  min-height:360px !important;
+  overflow:hidden !important;
+}
+.quick-orbit-scene{
+  min-height:360px !important;
+  overflow:hidden !important;
+}
+.quick-orbit-actions button{
+  left:50% !important;
+  top:50% !important;
+  min-width:104px !important;
+  max-width:118px !important;
+  min-height:44px !important;
+  font-size:12px !important;
+  line-height:1.15 !important;
+  white-space:normal !important;
+  z-index:7 !important;
+}
+.quick-orbit-center{z-index:5 !important;}
+@keyframes quickOrbit1{
+  from{transform:translate(-50%,-50%) rotate(0deg) translateY(-116px) rotate(0deg)}
+  to{transform:translate(-50%,-50%) rotate(360deg) translateY(-116px) rotate(-360deg)}
+}
+@keyframes quickOrbit2{
+  from{transform:translate(-50%,-50%) rotate(90deg) translateY(-116px) rotate(-90deg)}
+  to{transform:translate(-50%,-50%) rotate(450deg) translateY(-116px) rotate(-450deg)}
+}
+@keyframes quickOrbit3{
+  from{transform:translate(-50%,-50%) rotate(180deg) translateY(-116px) rotate(-180deg)}
+  to{transform:translate(-50%,-50%) rotate(540deg) translateY(-116px) rotate(-540deg)}
+}
+@keyframes quickOrbit4{
+  from{transform:translate(-50%,-50%) rotate(270deg) translateY(-116px) rotate(-270deg)}
+  to{transform:translate(-50%,-50%) rotate(630deg) translateY(-116px) rotate(-630deg)}
+}
+@keyframes quickOrbit5{
+  from{transform:translate(-50%,-50%) rotate(315deg) translateY(-116px) rotate(-315deg)}
+  to{transform:translate(-50%,-50%) rotate(675deg) translateY(-116px) rotate(-675deg)}
+}
+
+.more-orbit-card{
+  min-height:470px !important;
+  overflow:hidden !important;
+}
+.more-orbit-scene{
+  min-height:470px !important;
+  overflow:hidden !important;
+}
+.more-orbit-scene::before{width:292px !important;height:292px !important;}
+.more-orbit-scene::after{width:205px !important;height:205px !important;}
+.more-ring-a{width:250px !important;height:250px !important;}
+.more-ring-b{width:320px !important;height:320px !important;}
+.more-orbit-logo{
+  width:104px !important;
+  height:104px !important;
+}
+.more-orbit-logo img{width:58px !important;height:58px !important;}
+.more-orbit-item{
+  left:50% !important;
+  top:50% !important;
+  width:92px !important;
+  min-height:48px !important;
+  border-radius:15px !important;
+  padding:6px 6px !important;
+  z-index:7 !important;
+}
+.more-orbit-item span{font-size:19px !important;}
+.more-orbit-item strong{font-size:9.5px !important;line-height:1.08 !important;}
+@keyframes moreOrbit1{
+  from{transform:translate(-50%,-50%) rotate(0deg) translateY(-116px) rotate(0deg)}
+  to{transform:translate(-50%,-50%) rotate(360deg) translateY(-116px) rotate(-360deg)}
+}
+@keyframes moreOrbit2{
+  from{transform:translate(-50%,-50%) rotate(51.4deg) translateY(-116px) rotate(-51.4deg)}
+  to{transform:translate(-50%,-50%) rotate(411.4deg) translateY(-116px) rotate(-411.4deg)}
+}
+@keyframes moreOrbit3{
+  from{transform:translate(-50%,-50%) rotate(102.8deg) translateY(-116px) rotate(-102.8deg)}
+  to{transform:translate(-50%,-50%) rotate(462.8deg) translateY(-116px) rotate(-462.8deg)}
+}
+@keyframes moreOrbit4{
+  from{transform:translate(-50%,-50%) rotate(154.2deg) translateY(-116px) rotate(-154.2deg)}
+  to{transform:translate(-50%,-50%) rotate(514.2deg) translateY(-116px) rotate(-514.2deg)}
+}
+@keyframes moreOrbit5{
+  from{transform:translate(-50%,-50%) rotate(205.6deg) translateY(-116px) rotate(-205.6deg)}
+  to{transform:translate(-50%,-50%) rotate(565.6deg) translateY(-116px) rotate(-565.6deg)}
+}
+@keyframes moreOrbit6{
+  from{transform:translate(-50%,-50%) rotate(257deg) translateY(-116px) rotate(-257deg)}
+  to{transform:translate(-50%,-50%) rotate(617deg) translateY(-116px) rotate(-617deg)}
+}
+@keyframes moreOrbit7{
+  from{transform:translate(-50%,-50%) rotate(308.4deg) translateY(-116px) rotate(-308.4deg)}
+  to{transform:translate(-50%,-50%) rotate(668.4deg) translateY(-116px) rotate(-668.4deg)}
+}
+
+@media (max-width:420px){
+  .content{padding-left:12px !important;padding-right:12px !important;}
+  .quick-orbit-card{min-height:330px !important;}
+  .quick-orbit-scene{min-height:330px !important;}
+  .quick-orbit-scene::before{width:218px !important;height:218px !important;}
+  .quick-orbit-scene::after{width:142px !important;height:142px !important;}
+  .quick-orbit-ring{width:248px !important;height:248px !important;}
+  .quick-orbit-center{width:96px !important;height:96px !important;}
+  .quick-orbit-center strong{font-size:17px !important;}
+  .quick-orbit-center span{font-size:11px !important;}
+  .quick-orbit-actions button{min-width:88px !important;max-width:98px !important;min-height:40px !important;font-size:11px !important;padding:6px 7px !important;}
+  .more-orbit-card{min-height:440px !important;}
+  .more-orbit-scene{min-height:440px !important;}
+  .more-orbit-item{width:86px !important;min-height:46px !important;}
+  .more-orbit-item strong{font-size:9px !important;}
+}
+
+/* =========================================================
+   HARD MOBILE ORBIT FIX v2
+   Problem on Android: when animation/reduced-motion fails, orbit
+   items stack at center. This fixes by giving every button a real
+   visible static circular position first, then only subtle bobbing.
+   ========================================================= */
+@media (max-width: 700px) {
+  .quick-orbit-card,
+  .quick-orbit-scene {
+    min-height: 340px !important;
+    height: 340px !important;
+    overflow: hidden !important;
+  }
+  .quick-orbit-ring { width: 248px !important; height: 248px !important; }
+  .quick-orbit-scene::before { width: 220px !important; height: 220px !important; }
+  .quick-orbit-scene::after { width: 142px !important; height: 142px !important; }
+  .quick-orbit-center {
+    width: 92px !important;
+    height: 92px !important;
+    z-index: 4 !important;
+    pointer-events: none !important;
+  }
+  .quick-orbit-center span { font-size: 10px !important; line-height: 1 !important; }
+  .quick-orbit-center strong { font-size: 16px !important; line-height: 1 !important; }
+  .quick-orbit-actions { z-index: 8 !important; }
+  .quick-orbit-actions button {
+    position: absolute !important;
+    width: 94px !important;
+    min-width: 94px !important;
+    max-width: 94px !important;
+    min-height: 40px !important;
+    padding: 6px 6px !important;
+    font-size: 10.5px !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+    z-index: 9 !important;
+    transform: translate(-50%, -50%) !important;
+    animation: mobileButtonFloat 3s ease-in-out infinite !important;
+  }
+  .quick-orbit-actions button:nth-child(1) { left: 50% !important; top: 14% !important; animation-delay: 0s !important; }
+  .quick-orbit-actions button:nth-child(2) { left: 82% !important; top: 50% !important; animation-delay: .3s !important; }
+  .quick-orbit-actions button:nth-child(3) { left: 50% !important; top: 86% !important; animation-delay: .6s !important; }
+  .quick-orbit-actions button:nth-child(4) { left: 18% !important; top: 50% !important; animation-delay: .9s !important; }
+  .quick-orbit-actions button:nth-child(5) { left: 78% !important; top: 24% !important; animation-delay: 1.2s !important; }
+
+  .more-orbit-card,
+  .more-orbit-scene {
+    min-height: 465px !important;
+    height: 465px !important;
+    overflow: hidden !important;
+  }
+  .more-orbit-scene::before { width: 300px !important; height: 300px !important; }
+  .more-orbit-scene::after { width: 205px !important; height: 205px !important; }
+  .more-ring-a { width: 252px !important; height: 252px !important; }
+  .more-ring-b { width: 320px !important; height: 320px !important; }
+  .more-orbit-logo {
+    width: 98px !important;
+    height: 98px !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 5 !important;
+  }
+  .more-orbit-logo img { width: 55px !important; height: 55px !important; }
+  .more-orbit-logo span { font-size: 12px !important; }
+  .more-orbit-item {
+    position: absolute !important;
+    width: 86px !important;
+    min-width: 86px !important;
+    max-width: 86px !important;
+    min-height: 46px !important;
+    padding: 5px 5px !important;
+    border-radius: 14px !important;
+    font-size: 9px !important;
+    z-index: 9 !important;
+    transform: translate(-50%, -50%) !important;
+    animation: mobileButtonFloat 3.4s ease-in-out infinite !important;
+  }
+  .more-orbit-item span { font-size: 18px !important; }
+  .more-orbit-item strong { font-size: 8.5px !important; line-height: 1.05 !important; }
+  .more-pos-1 { left: 50% !important; top: 10% !important; animation-delay: 0s !important; }
+  .more-pos-2 { left: 82% !important; top: 28% !important; animation-delay: .2s !important; }
+  .more-pos-3 { left: 86% !important; top: 52% !important; animation-delay: .4s !important; }
+  .more-pos-4 { left: 70% !important; top: 80% !important; animation-delay: .6s !important; }
+  .more-pos-5 { left: 30% !important; top: 80% !important; animation-delay: .8s !important; }
+  .more-pos-6 { left: 14% !important; top: 52% !important; animation-delay: 1s !important; }
+  .more-pos-7 { left: 18% !important; top: 28% !important; animation-delay: 1.2s !important; }
+}
+
+@keyframes mobileButtonFloat {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -6px; }
+}
+
+/* Reduced motion must still keep the static button positions visible. */
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) {
+  .quick-orbit-actions button,
+  .more-orbit-item {
+    animation: none !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .quick-orbit-actions button { width: 86px !important; min-width: 86px !important; max-width: 86px !important; font-size: 9.7px !important; }
+  .quick-orbit-actions button:nth-child(2) { left: 83% !important; }
+  .quick-orbit-actions button:nth-child(4) { left: 17% !important; }
+  .more-orbit-item { width: 80px !important; min-width: 80px !important; max-width: 80px !important; }
+  .more-pos-3 { left: 87% !important; }
+  .more-pos-6 { left: 13% !important; }
+}
+
+
+/* =========================================================
+   JS REAL ORBIT PATCH v3 - works on phones
+   The JS sets left/top continuously. These rules stop old CSS
+   keyframes from fighting it while keeping glow/pulse movement.
+   ========================================================= */
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button,
+.more-orbit-scene.js-orbit-enabled .more-orbit-item{
+  transform:translate(-50%,-50%) !important;
+  transition:none !important;
+  will-change:left,top,filter,box-shadow !important;
+}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button{
+  animation:orbitGlowPulse 2.8s ease-in-out infinite !important;
+}
+.more-orbit-scene.js-orbit-enabled .more-orbit-item{
+  animation:orbitGlowPulse 3.1s ease-in-out infinite !important;
+}
+@keyframes orbitGlowPulse{
+  0%,100%{filter:brightness(1);box-shadow:0 14px 32px rgba(0,0,0,.25),0 0 20px rgba(37,99,235,.13)}
+  50%{filter:brightness(1.08);box-shadow:0 18px 40px rgba(0,0,0,.30),0 0 30px rgba(250,204,21,.20)}
+}
+@media (max-width:700px){
+  .quick-orbit-card,.quick-orbit-scene{height:350px!important;min-height:350px!important;}
+  .more-orbit-card,.more-orbit-scene{height:475px!important;min-height:475px!important;}
+  .quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button{
+    width:92px!important;min-width:92px!important;max-width:92px!important;
+    min-height:40px!important;font-size:10.5px!important;line-height:1.08!important;
+    white-space:normal!important;padding:6px!important;
+  }
+  .more-orbit-scene.js-orbit-enabled .more-orbit-item{
+    width:84px!important;min-width:84px!important;max-width:84px!important;
+    min-height:46px!important;padding:5px!important;
+  }
+}
+@media (max-width:370px){
+  .quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button{width:84px!important;min-width:84px!important;max-width:84px!important;font-size:9.5px!important;}
+  .more-orbit-scene.js-orbit-enabled .more-orbit-item{width:78px!important;min-width:78px!important;max-width:78px!important;}
+}
+
+/* =========================================================
+   FINAL HARD FIX: JS-controlled orbit only, no CSS transform conflict
+   - Android Chrome/WebView was overlapping because older CSS keyframes with
+     !important were still fighting the JavaScript positions.
+   - These rules kill transform animations ONLY inside active JS orbit scenes.
+   - JavaScript now owns left/top movement, so buttons stay separated.
+   ========================================================= */
+.js-orbit-enabled .quick-orbit-actions button,
+.js-orbit-enabled .more-orbit-item{
+  animation:none !important;
+  transition:none !important;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  will-change:left, top, filter;
+}
+.js-orbit-enabled .quick-orbit-actions button{
+  white-space:normal !important;
+  min-width:92px !important;
+  max-width:116px !important;
+  min-height:42px !important;
+  padding:7px 8px !important;
+  font-size:12px !important;
+  line-height:1.1 !important;
+}
+.js-orbit-enabled .more-orbit-item{
+  width:86px !important;
+  min-height:46px !important;
+  padding:5px !important;
+}
+.js-orbit-enabled .more-orbit-item strong{
+  font-size:9px !important;
+  line-height:1.05 !important;
+}
+.quick-orbit-scene.js-orbit-enabled{
+  min-height:370px !important;
+}
+.more-orbit-scene.js-orbit-enabled{
+  min-height:540px !important;
+}
+@media (max-width:420px){
+  .quick-orbit-scene.js-orbit-enabled{min-height:360px !important;}
+  .more-orbit-scene.js-orbit-enabled{min-height:520px !important;}
+  .js-orbit-enabled .quick-orbit-actions button{min-width:84px !important;max-width:104px !important;font-size:11px !important;}
+  .js-orbit-enabled .more-orbit-item{width:82px !important;min-height:44px !important;}
+  .js-orbit-enabled .more-orbit-item span{font-size:18px !important;}
+  .js-orbit-enabled .more-orbit-item strong{font-size:8.8px !important;}
+}
+
+/* =========================================================
+   FINAL PHONE ORBIT PATCH v4
+   Real fix: JS sets inline left/top/transform with !important.
+   These CSS rules only size the orbit scenes and buttons. No moving CSS.
+   ========================================================= */
+.quick-orbit-scene.js-orbit-enabled,
+.more-orbit-scene.js-orbit-enabled{
+  position:relative !important;
+  overflow:hidden !important;
+}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-actions,
+.more-orbit-scene.js-orbit-enabled{
+  position:relative !important;
+}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button,
+.more-orbit-scene.js-orbit-enabled .more-orbit-item{
+  position:absolute !important;
+  animation:none !important;
+  transition:none !important;
+  transform:translate(-50%,-50%) !important;
+  will-change:left,top !important;
+  box-sizing:border-box !important;
+}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button{
+  width:92px !important;
+  min-width:92px !important;
+  max-width:92px !important;
+  min-height:40px !important;
+  font-size:10.6px !important;
+  line-height:1.05 !important;
+  padding:6px !important;
+  white-space:normal !important;
+}
+.more-orbit-scene.js-orbit-enabled .more-orbit-item{
+  width:78px !important;
+  min-width:78px !important;
+  max-width:78px !important;
+  min-height:43px !important;
+  padding:5px 4px !important;
+}
+.more-orbit-scene.js-orbit-enabled .more-orbit-item span{font-size:17px !important;}
+.more-orbit-scene.js-orbit-enabled .more-orbit-item strong{font-size:8.2px !important;line-height:1.02 !important;}
+@media (max-width:700px){
+  .quick-orbit-card,.quick-orbit-scene.js-orbit-enabled{height:360px !important;min-height:360px !important;}
+  .more-orbit-card,.more-orbit-scene.js-orbit-enabled{height:535px !important;min-height:535px !important;}
+  .more-orbit-logo{width:94px !important;height:94px !important;}
+  .more-orbit-logo img{width:52px !important;height:52px !important;}
+}
+@media (max-width:370px){
+  .quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button{width:84px !important;min-width:84px !important;max-width:84px !important;font-size:9.7px !important;}
+  .more-orbit-scene.js-orbit-enabled .more-orbit-item{width:72px !important;min-width:72px !important;max-width:72px !important;}
+  .more-orbit-scene.js-orbit-enabled .more-orbit-item strong{font-size:7.8px !important;}
+}
+
+/* =========================================================
+   HOME QUICK ACTION ORBIT FIX v5
+   More page orbit is kept unchanged. This fixes only Home dashboard
+   Quick Actions by forcing a centered, capped transform orbit so buttons
+   cannot fly outside or overlap on phone/desktop wrappers.
+   ========================================================= */
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-actions{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:8 !important;
+  pointer-events:none !important;
+}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:112px !important;
+  min-width:112px !important;
+  max-width:112px !important;
+  min-height:44px !important;
+  padding:7px 8px !important;
+  border-radius:999px !important;
+  white-space:normal !important;
+  font-size:12px !important;
+  line-height:1.08 !important;
+  text-align:center !important;
+  pointer-events:auto !important;
+  animation:none !important;
+  transition:none !important;
+  will-change:transform !important;
+  box-sizing:border-box !important;
+  z-index:10 !important;
+}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-center{
+  width:108px !important;
+  height:108px !important;
+  z-index:6 !important;
+  pointer-events:none !important;
+}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-center span{font-size:11px !important;}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-center strong{font-size:18px !important;}
+.quick-orbit-scene.js-orbit-enabled .quick-orbit-ring{width:286px !important;height:286px !important;}
+.quick-orbit-scene.js-orbit-enabled::before{width:246px !important;height:246px !important;}
+.quick-orbit-scene.js-orbit-enabled::after{width:158px !important;height:158px !important;}
+@media (max-width:700px){
+  .quick-orbit-card,
+  .quick-orbit-scene.js-orbit-enabled{
+    height:350px !important;
+    min-height:350px !important;
+    overflow:hidden !important;
+  }
+  .quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button{
+    width:92px !important;
+    min-width:92px !important;
+    max-width:92px !important;
+    min-height:40px !important;
+    font-size:10.4px !important;
+    padding:6px !important;
+  }
+  .quick-orbit-scene.js-orbit-enabled .quick-orbit-center{
+    width:94px !important;
+    height:94px !important;
+  }
+  .quick-orbit-scene.js-orbit-enabled .quick-orbit-center span{font-size:10px !important;}
+  .quick-orbit-scene.js-orbit-enabled .quick-orbit-center strong{font-size:16px !important;}
+}
+@media (max-width:370px){
+  .quick-orbit-scene.js-orbit-enabled .quick-orbit-actions button{
+    width:84px !important;
+    min-width:84px !important;
+    max-width:84px !important;
+    font-size:9.5px !important;
+  }
+}
+
+
+/* =========================================================
+   SAVED WORKING ORBIT + SMOOTH SCROLL REVEAL + LIQUID LOGIN REVEAL
+   - More page orbit stays unchanged
+   - Home Quick Actions orbit stays unchanged
+   - Parallax removed to prevent scroll jank on phones
+   - Adds lightweight reveal-on-scroll motion instead
+   ========================================================= */
+body{
+  background:
+    radial-gradient(circle at 50% 0%, rgba(37,99,235,.18), transparent 34%),
+    linear-gradient(90deg,rgba(148,163,184,.055) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(148,163,184,.045) 1px,transparent 1px),
+    #020617 !important;
+  background-size:auto,38px 38px,38px 38px,auto;
+  background-attachment:scroll;
+}
+.app-shell{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.app-shell::after{
+  content:"";
+  position:fixed;
+  left:50%;
+  top:10%;
+  width:min(720px,92vw);
+  height:min(720px,92vw);
+  transform:translate3d(-50%,0,0);
+  border-radius:50%;
+  background:
+    radial-gradient(circle, rgba(37,99,235,.13) 0 12%, transparent 13% 100%),
+    repeating-radial-gradient(circle, rgba(250,204,21,.08) 0 1px, transparent 2px 70px),
+    repeating-radial-gradient(circle, rgba(148,163,184,.07) 0 1px, transparent 2px 104px);
+  opacity:.38;
+  pointer-events:none;
+  z-index:0;
+  animation:ambientDrift 18s ease-in-out infinite alternate;
+}
+@keyframes ambientDrift{
+  from{transform:translate3d(-51%,-6px,0) rotate(-2deg) scale(.985)}
+  to{transform:translate3d(-49%,8px,0) rotate(2deg) scale(1.015)}
+}
+.scroll-reveal{
+  opacity:0;
+  transform:translate3d(0,18px,0) scale(.988);
+  filter:saturate(.92);
+  transition:
+    opacity .58s cubic-bezier(.2,.9,.2,1),
+    transform .58s cubic-bezier(.2,.9,.2,1),
+    filter .58s ease;
+  transition-delay:var(--reveal-delay,0ms);
+  will-change:opacity,transform;
+}
+.scroll-reveal.revealed{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  filter:saturate(1);
+}
+.page-enter{animation:pageFadeSmooth .32s cubic-bezier(.2,.9,.2,1) both}
+@keyframes pageFadeSmooth{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+.card,.item,.stat-card,.search-card,.primary-btn,.secondary-btn,.accent-btn,.danger-btn,.ghost-btn,.link-btn,.bottom-nav button{
+  transition:transform .24s cubic-bezier(.2,.9,.2,1), box-shadow .24s cubic-bezier(.2,.9,.2,1), filter .24s ease, background .24s ease;
+}
+.card:hover,.item:hover,.stat-card:hover{
+  box-shadow:0 18px 48px rgba(0,0,0,.32),0 0 30px rgba(37,99,235,.12),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.primary-btn:active,.secondary-btn:active,.accent-btn:active,.danger-btn:active,.ghost-btn:active,.link-btn:active,.bottom-nav button:active{transform:scale(.985)}
+#loginSubmitBtn{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  transform:translateZ(0);
+}
+#loginSubmitBtn::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.34),transparent);
+  transform:translate3d(-120%,0,0);
+  transition:transform .55s cubic-bezier(.2,.9,.2,1);
+  pointer-events:none;
+}
+#loginSubmitBtn:not(:disabled):hover::after,
+#loginSubmitBtn:not(:disabled):focus-visible::after{transform:translate3d(120%,0,0)}
+.login-expand-circle{
+  position:fixed;
+  left:var(--login-circle-x,50vw);
+  top:var(--login-circle-y,50vh);
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  transform:translate3d(-50%,-50%,0) scale(.01);
+  transform-origin:center;
+  z-index:10000;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 40% 35%, rgba(254,243,199,.98), rgba(245,158,11,.98) 18%, rgba(37,99,235,.99) 50%, rgba(2,6,23,1) 100%);
+  box-shadow:0 0 50px rgba(250,204,21,.36),0 0 90px rgba(37,99,235,.30);
+  opacity:1;
+  will-change:transform,opacity;
+  backface-visibility:hidden;
+  contain:layout paint style;
+}
+.login-expand-circle.active{
+  transform:translate3d(-50%,-50%,0) scale(var(--login-circle-scale,120));
+  transition:transform 1.08s cubic-bezier(.16,1,.3,1);
+}
+.login-expand-circle.fade-out{
+  opacity:0;
+  transform:translate3d(-50%,-50%,0) scale(calc(var(--login-circle-scale,120) * 1.01));
+  transition:opacity .34s ease-out, transform .34s cubic-bezier(.22,1,.36,1);
+}
+.login-reveal-hidden{opacity:0;transform:translate3d(0,6px,0) scale(.996)}
+.login-reveal-ready{animation:loginDashboardReveal .5s cubic-bezier(.2,.9,.2,1) both}
+@keyframes loginDashboardReveal{
+  from{opacity:0;transform:translate3d(0,8px,0) scale(.996)}
+  to{opacity:1;transform:translate3d(0,0,0) scale(1)}
+}
+body.login-transitioning .app-shell::after,
+body.login-transitioning .topbar,
+body.login-transitioning .content > *{
+  transition:none!important;
+  animation:none!important;
+}
+body.login-transitioning .scroll-reveal{opacity:1!important;transform:none!important;transition:none!important;filter:none!important;}
+@media (max-width:520px){
+  .app-shell::after{width:560px;height:560px;top:12%;animation-duration:22s;}
+  .scroll-reveal{transform:translate3d(0,12px,0) scale(.994);transition-duration:.46s;}
+}
+@media (prefers-reduced-motion:reduce){
+  .login-expand-circle,.login-expand-circle.active,.login-expand-circle.fade-out,.login-reveal-ready,.scroll-reveal,.app-shell::after{animation:none!important;transition:none!important;}
+  .scroll-reveal{opacity:1!important;transform:none!important;filter:none!important;}
+}
